@@ -1,0 +1,40 @@
+{% extends 'ditresa/base.html' %}
+{% block page-name %}List of records{% endblock %}
+{% block content %}
+  {% block page-title %}
+    <div id="page-title">List of records in database</div>
+  {% endblock %}
+    {% load static %}
+
+    {% if latest_entries_list %}
+        <ul id="list_title">
+            <div class="list_person_title">
+                Name
+            </div>
+            <span class="list_birthday_title"> Birthday</span>
+        {% for entry in latest_entries_list %}
+            <li>
+                <div class="list_person">
+                    <a href="{% url 'astro:detail' entry.id %}">
+                        {{ entry.person }}
+                    </a>
+                </div>
+                <span class="list_birthday"> -- {{ entry.birth_date_time }}</span>
+            </li>
+        {% endfor %}
+        </ul>
+    {% else %}
+        <p>Something.</p>
+    {% endif %}
+
+{% endblock %}
+
+
+
+{% block navigation %}
+    <ul>
+        <li><a href="{% url 'astro:new' %}">
+            <span class="image">+ Add new record</span>
+        </a></li>
+    <ul>
+{% endblock %}

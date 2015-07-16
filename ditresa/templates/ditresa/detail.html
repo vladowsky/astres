@@ -1,0 +1,41 @@
+{% extends 'ditresa/base.html' %}
+{% block page-name %}Person astro data details{% endblock %}
+{% block content %}
+  {% block page-title %}
+    <div id="page-title">Person astra data for {{ person }}</div>
+  {% endblock %}
+
+  <form id="view" action="" method="post">
+    {% csrf_token %}
+    {% for field in form %}
+        <div class="vfield">
+          <div class="vlabel">{{ field.label }}:</div>
+          <span class="vvalue">{{ field.value }}</span>
+        </div>
+    {% endfor %}
+  </form>
+
+  </br>
+  </br>
+{% endblock %}
+
+{% block navigation %}   
+  <div class="nav_link">
+    <a href="{% url 'astro:edit' instance.id %}">Edit details</a> 
+  </div> 
+
+  <div class="nav_link">
+    <a href="{% url 'astro:graph' natal_id esolevel %}">
+              <span class="image">Draw astrograms</span></a>
+  </div> 
+  <div class="nav_link">
+    <a href="{% url 'astro:aslist' %}">Back to the list</a>
+  </div> 
+{% endblock %} 
+
+
+
+
+
+
+

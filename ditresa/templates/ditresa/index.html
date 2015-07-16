@@ -1,0 +1,29 @@
+{% extends 'ditresa/base.html' %}
+{% block page-name %}Esoteric astrograms constructor{% endblock %}
+{% block content %}
+  {% block page-title %}
+    <div id="page-title">Draw your own esoteric development astrogram</div>
+  {% endblock %}
+    <div id="home_text">
+        <p>Using this web-site service you can draw astrograms using natal chart data, which you can receive in any astrologic service based on information about day, time and place of the birth of respective person. </p>
+        <p>This set of astrograms shows potential development of respective person on three levels of spiritual growth. On every level one could trace different influence of planets on the person. As a result the person needs and inclinations can differ in different periods of one's life. </p>
+        <p>These astrograms allow to evaluate the interaction dynamics and persons compatibility, proceeding from influence extent of the planets on the different stages of the person spiritual development. </p>
+        <p>It is important to point out that here we have to take into account esoteric character of planet manifestation. It is most profoundly described in the works of Alice Bailey.</p>
+    </div>    
+  </br>
+  </br>
+{% endblock %}
+
+{% block navigation %}   
+
+  <div class="nav_link">
+    <a href="{% url 'astro:aslist' %}">Back to the list</a>
+  </div> 
+{% endblock %} 
+
+
+
+
+
+
+

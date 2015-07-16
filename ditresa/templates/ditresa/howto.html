@@ -1,0 +1,37 @@
+{% extends 'ditresa/base.html' %}
+{% block page-name %}How to draw esoteric astograms {% endblock %}
+{% block content %}
+  {% block page-title %}
+    <div id="page-title">How to use this application. Manual instructions.</div>
+  {% endblock %}
+
+    <div id="howto_text">
+      <p>- First of all you have to register.</p> 
+      <p>- Then enter into the system using your login and password.</p>
+      <p>- When you've entered into the system, you can create new record for a new person, to look over already existed record, to edit already existed record, and to draw diagram for already existed record.</p>
+      <p>- You can create new record or look over the existed record from page "List if records".</p> 
+      <p>- To create new record, click on the link "Add new record" on the right navigation panel. Fill personal data of the person, including name of the person, his birthdate (including birthtime) and his birth place in the Earth. Then fill zodiac signs for every of 10 planets in the form, choosing it in the relative select box. You have to take this information from natal chart of the person, calculated in any astrological website for the  birth moment of the person.</p> 
+      <p>- Be sure to fill every form field and then press the Submit button to save the record.</p> 
+      <p>- To look over the person data click on the name of the person in the list on the screen. Your will see the record details on the screen. </p>
+      <p>- To edit already existed record of the astrograms for that person, click on the link "Edit details", being on the page "Record details". Edit all you need on the opened page and click on the Submit button. </p>
+      <p>- To draw esoteric astrograms for already existed record, click on the link "Draw astrograms", being on the page "Record details". Astragram of the zero level will appear on the screen. You can choose orientation of the astorogram, clicking one of the four button on the top of the draw. You can draw the astrogram for any of three level (0, 1 or 2), clicking on one of three links on the right navigation panel. </p>
+      <p>- You can return to the list of records by clicking the link "Back to the list" on the right navigation panel or by clicking button "List of records" in the top menu. </p>
+      <p>- You can also return to home page of to the of manual instructions, by clicking buttons "Home" or "How to use" respectively in the top menu.</p>
+    </div>
+
+  </br>
+  </br>
+{% endblock %}
+
+{% block navigation %}   
+  <div class="nav_link">
+    <a href="{% url 'astro:aslist' %}">Back to the list</a>
+  </div> 
+{% endblock %} 
+
+
+
+
+
+
+

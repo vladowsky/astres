@@ -1,0 +1,43 @@
+{% extends 'ditresa/base.html' %}
+{% block page-name %}Login page{% endblock %}
+{% block title %}{{ category_name }}{% endblock %}
+{% load static %}
+
+{% block content %}
+  {% block page-title %}
+    <div id="page-title">Welcome Guest - login please.</div>
+  {% endblock %}
+        <form id="login_form" method="post" action="/astro/login/">
+            {% if bad_details %}
+                <div class="login_error">
+                    Your username and/or password were incorrect!
+                </div>
+            {% elif disabled_account %}
+                <div class="login_error">
+                    Your account is currently disabled; we can't log you in!
+                </div>
+            {% endif %}        
+            {% csrf_token %}
+
+            <div class='userfield_name'>Username:</div>
+            <div class='userfield_value'>
+                <input type="text" name="username" value="{{ username }}" 
+                    size="30" {{ disabled_switch }}/>
+            </div>            
+            <div class='userfield_name'>Password:</div>
+            <span class='userfield_value'>
+                <input type="password" name="password" value="{{ password }}" 
+                    size="30" {{ disabled_switch }}/>
+            </span>
+
+            <div>
+                <button  class="login_submit" type="submit" 
+                    {{ disabled_switch }}>Submit
+                </button>
+            </div>
+        </form>
+
+
+{% endblock %}
+
+

@@ -1,0 +1,110 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/html4/strict.dtd">
+<html>
+<head>
+    <title>Astrographic plotter</title>
+    <meta http-equiv="content-type" content="text/html; charset=UTF8">
+
+    {% load static from staticfiles %}
+    <link rel="stylesheet" href="{% static "css/ditresa.css" %}" /> <!-- CSS -->
+    <link rel="stylesheet" href="{% static "css/vis.min.css" %}" /> <!-- CSS -->
+    <link rel="stylesheet" href="{% static "css/graph.css" %}" /> <!-- CSS -->
+    <link rel="stylesheet" href="{% static "css/form.css" %}" /> <!-- CSS -->
+    <style type="text/css"></style>
+    {% block js_graph %}{% endblock %}    
+</head>
+<body>
+<div id="container">      
+    <div id="header">
+        <div id="header-logo">
+            <img src="{% static 'images/logo_astro_1000x140.jpg' %}">
+        </div>
+    </div>
+    <div id="nav-bar">
+        <div id="menu">
+            <ul>
+                <div id="nav-left"> &nbsp </div>
+                <li id="nav-middle">
+                    <a href="{% url 'astro:index' %}">Home</a> 
+                </li>
+                <li id="nav-middle">
+                    <a href="{% url 'astro:aslist' %}">List of records</a>
+                </li>
+                <li id="nav-middle">
+                    <a href="{% url 'astro:howto' %}">How to use</a> 
+                </li>
+                <div id="nav-right"> &nbsp </div>
+            </ul>
+        </div>
+
+        <div id="page-name">{% block page-name %}{% endblock %}</div>                    
+
+        <div id="signin" >
+            <ul>
+                <li id="login">
+                    <!-- <a href="{% url 'astro:index' %}"> -->
+                        {% if user.is_authenticated %}
+                            Welcome {{ username }}
+                        {% else %}
+                            Welcome Guest
+                        {% endif %}
+                    <!-- </a>  -->
+                </li>                    
+            </ul>                    
+        </div>
+    </div>
+    <div id="wrapper">
+        <div id="content">
+            {% block content %}
+                {% block page-title %}{% endblock %}
+            {% endblock %}
+            {% block comments %}{% endblock %}
+        </div>
+    </div>
+    <div id="nav-side-block">
+            <div id="nav-side-title"> 
+                Authorization
+            </div>
+        <div id="nav-side1"> 
+
+            {% block navigation_top %}
+            <ul>
+                {% if user.is_authenticated %}
+                    <li><a href="{% url 'astro:user_logout' %}">Logout</a></li>
+                {% else %}
+                    <li><a href="{% url 'astro:user_login' %}">Login</a></li>
+                    <!-- <li><a href="{% url 'astro:register' %}">Registration</a></li> -->
+                {% endif %}
+            <ul>
+            {% endblock %}
+        </div>
+<!-- &nbsp -->
+        <div id="nav-space"> &nbsp </div> 
+        <div id="nav-side-title"> 
+            Person operation
+        </div>
+
+        <div id="nav-side2">                   
+        {% block navigation %}{% endblock %}            
+
+        </div>
+        
+    </div>
+    
+    <div id="extra">
+        <p><strong>Esoteric Astrology. </strong>Development Astrograms.</p>
+    </div>
+    <div >
+        <div id="bottom-bar">
+            Copyright © 2015, Esoteric Astrology Inc. All Rights Reserved.
+        </div>
+        {% block footer %}{% endblock %}
+    </div>
+</div>
+</body>
+</html>
+
+
+
+
+
+

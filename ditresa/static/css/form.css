@@ -1,0 +1,117 @@
+
+/*----------------------------------------------
+    Font for all forms
+-----------------------------------------------*/
+.list_person_title, .list_birthday_title, .list_person, .list_birthday, 
+.vlabel, .vvalue, .field_label, .field_value input, .field_value select, 
+.error_message, .esubmit, .nsubmit, .login_error, .userfield_name, 
+.userfield_value input, .login_submit {
+    font: 14pt Times;   
+} 
+
+/*----------------------------------------------
+    List of persons
+-----------------------------------------------*/
+
+.list_birthday_title {
+    font-weight: bold;    
+}
+
+.list_person, .list_person_title  {
+    margin-left: 50px;
+    clear: both;
+    float:left;   
+    display: inline-block;
+    width: 200px;
+    font-weight: bold;
+}
+.list_birthday, .list_birthday_title {
+    width: 200px;
+}
+
+
+/*----------------------------------------------
+    Detail Form - read-only
+-----------------------------------------------*/
+.vfield {
+    width: 500px;
+    padding-left: 50px;
+}
+.vlabel {
+    float:left;   
+    display: inline-block;
+    width: 200px; 
+    clear:left;
+    height: 28px;
+    font-weight: bold;
+}
+.vvalue {
+    width: 200px; 
+    float:left;   
+}
+
+/*----------------------------------------------
+    Editable Form (Edit & New Form)
+-----------------------------------------------*/
+.field_label {
+    margin-left: 50px;
+    float:left;   
+    display: inline-block;
+    width: 180px;
+    height: 28px;
+    font-weight: bold;     
+}
+
+.field_value input, .field_value select, .error_message  {
+    margin-bottom: 2px;
+    width: 200px;
+    height: 28px;   
+}
+
+.error_message {
+    margin-left: 20px;
+    background-color: #FFD5BC;
+}
+
+.esubmit, .nsubmit  {
+    margin-top: 5px;
+    padding-top: 5px;
+    padding-bottom: 5px;
+    width: 400px; 
+}
+
+/*----------------------------------------------
+    Login Form
+-----------------------------------------------*/
+#login_form {
+    margin-left: 50px;
+}
+
+.login_error {
+    margin-bottom: 10px;
+    font-weight: bold;
+    color: red;    
+}
+
+.userfield_name  {
+    clear:both;
+    float:left;   
+    display: inline-block;
+    margin-top: -3px;
+    width: 120px;
+    height: 38px;
+    font-weight: bold;    
+}
+
+.userfield_value input {
+    margin-bottom: 3px;
+}
+
+.login_submit {
+    clear:both;
+    float:left;   
+    margin-top: 15px;
+    padding-top: 4px;
+    width: 400px; 
+}
+

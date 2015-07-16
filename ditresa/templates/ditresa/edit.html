@@ -1,0 +1,55 @@
+{% extends 'ditresa/base.html' %}
+{% block page-name %}Astro data edit{% endblock %}
+{% block content %}
+  {% block page-title %}
+    <div id="page-title">Edit astro data for {{ instance.person }}</div>
+  {% endblock %}
+
+<form id="edit" action="{% url 'astro:edit' instance.id  %}" method="post">
+    {% csrf_token %}
+    <!-- {{ form }} -->
+
+        {# Include the hidden fields in the form #}
+        {% if form.non_field_errors %}
+        <div class="form_errors">
+          {% for err in form.non_field_errors %}
+          <div class="form_error_message">{{ err }}</div>
+          {% endfor %}
+        </div>  
+        {% endif %}
+        {% for hidden in form.hidden_fields %}
+           {{ hidden }}
+        {% endfor %}
+        {% for field in form.visible_fields %}
+          <div {% if field.errors %}class="field_error"{% endif %}>
+            <div class='field_label'>{{ field.label_tag }}</div>
+            <span class="field_value">{{ field }}</span>
+            {% for err in field.errors %}
+            <span class="error_message">{{ err }}</span>
+            {% endfor %}
+          </div>
+        {% endfor %}
+    
+</br>
+</br>
+    <input class="esubmit" type="submit" value="Submit" />
+</form>
+
+
+{% endblock %}
+
+{% block navigation %}   
+    <div class="nav_link">
+      <a href="{% url 'astro:delete'  instance.id %}" onclick="return confirm('Permanently delete current instance. Are you sure?')">Delete item</a>
+    </div> 
+    <div class="nav_link">
+      <a href="{% url 'astro:aslist' %}">Back to the list</a>
+    </div> 
+{% endblock %} 
+
+
+
+
+
+
+

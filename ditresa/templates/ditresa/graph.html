@@ -1,0 +1,64 @@
+{% extends 'ditresa/base.html' %}
+{% block page-name %} Astrograms {% endblock %}
+{% load static %}
+
+{% block content %}
+  {% block page-title %}
+    <div id="page-title">Esoteric astrograms for {{ person }}</div>
+  {% endblock %}
+
+  <script src="{% static 'js/vis.min.js' %}"></script>
+  <script src="{% static 'js/graph_hier.js' %}"></script>
+
+  <!-- <body onload="draw();"> -->
+  <!-- <h2>Тип астрограммы - Flexible Hierarchical Layout</h2> -->
+  <p>
+    <input type="button" id="btn-UD" value="Up-Down">
+    <input type="button" id="btn-DU" value="Down-Up">
+    <input type="button" id="btn-LR" value="Left-Right">
+    <input type="button" id="btn-RL" value="Right-Left">
+    <input type="hidden" id='direction' value="LR">
+  </p>
+
+  <script type="text/javascript">
+    var js_planets = {{ js_planets|safe }};
+    var js_planet_simbol = {{ js_planet_simbol|safe }};
+    var js_planet_control = {{ js_planet_control|safe }};
+    var js_planet_level = {{ js_planet_level|safe }};
+  </script>
+
+
+  <!-- View of the variables for testing purposes -->
+  <!-- <p>Planets: {{ js_planets }}</p> -->
+  <!-- <p>Level: {{ js_planet_level }}</p> -->
+  <!-- <p>Control: {{ js_planet_control }}</p> -->
+
+
+  <script src="{% static 'js/but_select.js' %}"></script>
+  <div id="graph_container"></div>
+  <script type="text/javascript">draw()</script>
+    
+  
+
+  
+
+
+{% endblock %}
+
+{% block navigation %}   
+  <div class="nav_link">
+      <a href="{% url 'astro:graph' natal_id=natal_id esolevel=0 %}">
+      <span class="image">Astrogram - level 0</span></a>
+  </div> 
+  <div class="nav_link">
+      <a href="{% url 'astro:graph' natal_id=natal_id esolevel=1 %}">
+      <span class="image">Astrogram - level 1</span></a>
+  </div> 
+  <div class="nav_link">
+      <a href="{% url 'astro:graph' natal_id=natal_id esolevel=2 %}">
+      <span class="image">Astrogram - level 2</span></a>
+  </div> 
+  <div class="nav_link">
+    <a href="{% url 'astro:aslist' %}">Back to the list</a>
+  </div> 
+{% endblock %} 
